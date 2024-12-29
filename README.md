@@ -119,5 +119,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-**Desenvolvido com 💻 e ☕ por [Seu Nome](https://github.com/seu-usuario)** 🚀
+**Desenvolvido com 💻🤖 e ☕ por [Gustavo Antonio](https://github.com/gus-ant)** 🚀
 
