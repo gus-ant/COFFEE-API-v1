@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cafe&Wifi API</title>
-</head>
-<body>
-    <h1>Welcome to the Cafe & Wifi API</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe & Wifi API</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+      }
+      body {
+        background: linear-gradient(135deg, #ffddc1, #ffabab);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        text-align: center;
+        background: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+      }
+
+      h1 {
+        color: #4a4e69;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #6d6875;
+        font-size: 1rem;
+      }
+
+      .btn {
+        margin-top: 20px;
+        text-decoration: none;
+        background-color: #ff6f61;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #e63946;
+      }
+
+      footer {
+        margin-top: 30px;
+        font-size: 0.8rem;
+        color: #b1a7a6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bem vindos ao Cafe & Wifi API ☕</h1>
+      <p>
+        Explore uma API simples e eficiente para gerenciar informações sobre
+        cafés, incluindo detalhes como localização, preço do café,
+        disponibilidade de Wi-Fi e muito mais.
+      </p>
+      <a href="/all" class="btn">Ver Todos os Cafés</a>
+      <footer>
+        © 2024 Cafe & Wifi API, por
+        <a href="https://github.com/gus-ant" class="custom-link">gus-ant</a>.
+        Todos os direitos reservados.
+      </footer>
+    </div>
+  </body>
 </html>
