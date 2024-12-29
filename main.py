@@ -4,31 +4,17 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean
 import random
 
-'''
-Install the required packages first: 
-Open the Terminal in PyCharm (bottom left). 
-
-On Windows type:
-python -m pip install -r requirements.txt
-
-On MacOS type:
-pip3 install -r requirements.txt
-
-This will install the packages from requirements.txt for this project.
-'''
 
 app = Flask(__name__)
 
-# CREATE DB
 class Base(DeclarativeBase):
     pass
-# Connect to Database
+    
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
 
-# Cafe TABLE Configuration
 class Cafe(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(250), unique=True, nullable=False)
@@ -109,19 +95,11 @@ def all_cafes():
             "seats": cafe.seats
         } for cafe in cafes])
 
-# Error Handling > Boolean form values:
 def str_to_bool(string):
-    """
-    It receives a string, check if the string is a valid positive answer and return the result. This function goal is
-    to make the dev life easier, basically during form tests.
-    :param string: the text.
-    :return: bool
-    """
     if string in ["1", "YES", "Yes", "yes", "Y", "y", "TRUE", "True", "true", "T", "t"]:
         return True
     return False
 
-# HTTP POST - Create Record
 @app.route('/add_form')
 def add_form():
     return render_template('add.html')
@@ -150,8 +128,6 @@ def post_new_cafe():
         return jsonify(response={"error": f"An error occurred: {str(e)}"}), 500
 
 
-
-# HTTP PUT/PATCH - Update Record
 @app.route("/update-price/<int:cafe_id>", methods=["PATCH"])
 def patch_new_price(cafe_id):
     new_price = request.form.get("new_price")
@@ -166,11 +142,10 @@ def patch_new_price(cafe_id):
     else:
         return jsonify(error={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
 
-# HTTP DELETE - Delete Record
 
 @app.route("/report-closed/<int:cafe_id>", methods=["DELETE"])
 def delete_cafe(cafe_id):
-    api_key = request.args.get("api_key")  # Alterado para 'args'
+    api_key = request.args.get("api_key")  
     print(api_key)
     print(cafe_id)
     
